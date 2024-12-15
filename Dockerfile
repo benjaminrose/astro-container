@@ -6,6 +6,8 @@ LABEL version="v1.0.alpha"
 LABEL release-date="2024-03-03"
 LABEL description="My default science container using conda-forge/mamba."
 
+WORKDIR /root
+
 RUN mamba create -n sci -y -c conda-forge \
 python \
 asdf \
