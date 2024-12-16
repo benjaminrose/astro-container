@@ -1,15 +1,17 @@
 FROM condaforge/mambaforge:latest
 
 # metadata
-LABEL maintainer="Benjamin Rose <Ben_Rose@baylor.edu>"
-LABEL version="v1.0.alpha"
-LABEL release-date="2024-03-03"
-LABEL description="My default science container using conda-forge/mamba."
+LABEL org.opencontainers.image.authors="Benjamin Rose <Ben_Rose@baylor.edu>"
+LABEL py_verion="3.13"
+LABEL org.opencontainers.image.description="My default science/astro container using mambaforge. Uses Python 3.13."
 
 WORKDIR /root
 
+RUN apt update
+RUN apt install -y vim
+
 RUN mamba create -n sci -y -c conda-forge \
-python \
+python=3.13 \
 asdf \
 astropy \
 matplotlib \
